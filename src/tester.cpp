@@ -2,10 +2,17 @@
 #include "sudoku.hpp"
 using namespace std;
 
-int main(){
+int main(int argc, char **argv){
 	Sudoku s;
+	string filename;
 
-	if (!s.Read_Grid()){
+	if (argc != 2) {
+		cerr << "Usage: ./tester [filename]\n";
+	}
+
+	filename = argv[1];
+
+	if (!s.Read_Grid(filename)){
 		cout << "Invalid Puzzle\n";
 	}
 

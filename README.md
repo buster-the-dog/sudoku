@@ -1,3 +1,3 @@
 # sudoku
 
-simple sudoku solver. takes a puzzle line by line on command line where '-' represents an empty space
+simple sudoku solver. run with `./tester [filename]` on a sudoku puzzle (blank spaces can be represented as hyphens `-`

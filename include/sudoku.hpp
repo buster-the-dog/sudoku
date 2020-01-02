@@ -9,7 +9,7 @@ class Sudoku{
 
 		void Print(bool effects = true); //prints grid. if effects is set to false, it just prints the 9 strings on their own line
 
-		bool Read_Grid();
+		bool Read_Grid(std::string filename);
 		bool Solve();
 
 	protected:

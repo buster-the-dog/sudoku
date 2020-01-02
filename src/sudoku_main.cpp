@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdio>
 #include <vector>
+#include <fstream>
 #include <string>
 #include "sudoku.hpp"
 using namespace std;
@@ -38,13 +39,20 @@ void Sudoku::Print(bool effects){
 	}
 } //prints grid. if effects is set to false, it just prints the 9 strings on their own line
 
-bool Sudoku::Read_Grid(){
+bool Sudoku::Read_Grid(string filename){
 	int i;
 	string s;
+	ifstream ifs;
+
+	ifs.open(filename.c_str());
+
+	if (!ifs.is_open()){
+		return false;
+	}
 
 	grid.resize(0);
 
-	while (getline(cin, s)){
+	while (getline(ifs, s)){
 		if (s == "") break;
 		//check length
 		if ((int) s.size() != 9) return false;
@@ -56,6 +64,8 @@ bool Sudoku::Read_Grid(){
 		}
 		grid.push_back(s);
 	}
+
+	ifs.close();
 
 	//if the grid is not the correct size, put it back to the empty grid and return false
 	if (grid.size() != 9) {
